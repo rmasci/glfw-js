@@ -1,6 +1,5 @@
-//:build js && !wasm
-//go:build js && !wasm
-// +build js,!wasm
+// Todo go:build js && !wasm
+// Todo +build js,!wasm
 
 package glfw
 
@@ -12,6 +11,7 @@ import (
 	"net/http"
 	"runtime"
 
+	"github.com/atotto/clipboard"
 	"github.com/gopherjs/gopherjs/js"
 	"honnef.co/go/js/dom"
 )
@@ -927,18 +927,20 @@ func DefaultWindowHints() {
 // This is set clipboard string
 func (w *Window) SetClipboardString(str string) {
 	// Async Clipboard API [navigator.clipboard.writeText]
-	js.Global().Get("navigator").Get("clipboard").Call("writeText")
-	//clipboard.WriteAll(clip.String())
+	//clip:=js.Global.Get("navigator").Get("clipboard").Call("writeText").String()
+	clipboard.WriteAll(str)
 }
 
 // this is me. removed return, string,err to just string.
-func (w *Window) GetClipboardString() string {
+func (w *Window) GetClipboardString() (string, error) {
+	return clipboard.ReadAll()
+
 	//clip, err := clipboard.ReadAll()
 	//if err != nil {
 	//	return "", err
 	//}
-	clip := js.Global().Get("navigator").Get("clipboard").Call("readText")
-	return clip.String()
+	//clip := js.Global().Get("navigator").Get("clipboard").Call("readText")
+	//return clip.String()
 }
 
 func (w *Window) SetTitle(title string) {
