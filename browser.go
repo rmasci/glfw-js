@@ -1,5 +1,5 @@
-//todo go:build js && !wasm
-// todo +build js,!wasm
+//go:build js && !wasm
+// +build js,!wasm
 
 package glfw
 
