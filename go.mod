@@ -1,9 +1,10 @@
-module github.com/fyne-io/glfw-js
+module github.com/rmasci/glfw-js
 
-go 1.14
+go 1.21.1
 
 require (
-	github.com/go-gl/glfw/v3.3/glfw v0.0.0-20211213063430-748e38ca8aec
-	github.com/gopherjs/gopherjs v0.0.0-20211219123610-ec9572f70e60
-	honnef.co/go/js/dom v0.0.0-20210725211120-f030747120f2
+	github.com/fyne-io/glfw-js v0.0.0-20220517201726-bebc2019cd33
+	github.com/go-gl/glfw/v3.3/glfw v0.0.0-20221017161538-93cebf72946b
+	github.com/gopherjs/gopherjs v1.17.2
+	honnef.co/go/js/dom v0.0.0-20230808055721-96db8f4d5e3b
 )
